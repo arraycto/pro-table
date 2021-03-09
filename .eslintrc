@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "@yo/eslint-config-sunsharing/react",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+      "@typescript-eslint",
+      "react-hooks"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
+    "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }],
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-non-null-assertion": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": 0
+      }
+    }
+  ]
+}

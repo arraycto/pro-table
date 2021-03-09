@@ -1,0 +1,254 @@
+.pro-table {
+    // 动态边距处理
+    > *:first-child {
+        &.nav-tabs,
+        &.pro-table-caption {
+            margin-top: 0;
+        }
+    }
+    .nav-tabs + .pro-table-caption,
+    .pro-table-caption + .nav-tabs  {
+        margin-top: 0;
+    }
+
+    .form-rule-3,
+    .form-rule-3-filter {
+        [class^='col-'] {
+            padding: 0 10px 16px;
+        }
+    }
+    .form-rule-3 {
+        margin: 0;
+        padding: 16px 10px 0 10px;
+        &:empty {
+            padding: 0;
+        }
+        &:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    // 解决部分表单纵向偏移
+    .form-item {
+        .form-control,
+        .btn {
+            line-height: normal;
+        }
+    }
+    // 表单控件间距调整
+    .form-item .btn {
+        margin-left: 0;
+
+        & + .btn {
+            margin-left: 8px;
+        }
+    }
+
+    // 表格背景为白色
+    .share-list-share-table,
+    .share-list-share_table_nav {
+        background: #fff;
+    }
+
+    // input 类型为 search 时的样式
+    .search-input {
+        max-width: 700px;
+        margin: 0 auto;
+
+        input.form-control {
+            float: left;
+            padding-right: 46px + 9px;
+            margin-right: -46px;
+            border-right: none;
+        }
+        button.btn {
+            float: left;
+            width: 46px;
+            margin-left: 0;
+            padding: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            i {
+                font-size: 16px;
+                margin-right: 0;
+            }
+        }
+        &:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+
+    // ActionColumn 样式
+    .action-col {
+        a {
+            color: #0099dd;
+            display: inline-block;
+            margin: 4px 12px 4px 0;
+            cursor: pointer;
+            &:hover { color: #0077BB }
+        }
+    }
+
+    // Tabs 样式
+    .nav-tabs {
+        background: #fff;
+        margin-top: 12px;
+        > li {
+            > a {
+                height: 39px;
+                font-size: 16px;
+                color: #323538;
+                line-height: 38px;
+                padding: 0 30px;
+                cursor: pointer;
+            }
+            &.active > a {
+                font-weight: bold;
+                color: #09d;
+                cursor: default;
+            }
+            &:hover > a {
+                color: #09d;
+            }
+        }
+    }
+}
+
+// Caption 样式
+.pro-table-caption {
+    height: 48px;
+    padding: 0 20px;
+    background: #fff;
+    margin-top: 12px;
+
+    .left-box {
+        float: left;
+        h3 {
+            float: left;
+            margin: 0;
+            margin-right: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #323538;
+            line-height: 48px;
+        }
+        p {
+            float: left;
+            margin: 0;
+            font-size: 14px;
+            color: #74767a;
+            line-height: 48px;
+        }
+        &:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+    .right-box {
+        float: right;
+        display: table;
+        height: 100%;
+        
+        .btn {
+            margin: 9px 0;
+            &.btn-sm { margin: 12px 0 }
+            &.btn-lg { margin: 4px 0 }
+        }
+        .btn + .btn,
+        .btn + a,
+        a + a,
+        a + .btn {
+            margin-left: 8px;
+        }
+        a { cursor: pointer }
+        .extra {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+// message 样式
+.pro-table-message {
+    position: fixed;
+    top: 8px;
+    left: 0;
+    z-index: 1010;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    list-style: none;
+
+    font-size: 14px;
+    font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+
+    &-notice {
+        padding: 8px;
+        text-align: center;
+        opacity: 1;;
+        transform: translateY(0);
+        animation: MessageMoveEnter .3s both;
+
+        &.leave {
+            animation-name: MessageMoveLeave;
+        }
+    }
+    &-notice-content {
+        padding: 10px 16px;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background: #fff;
+        display: inline-block;
+        pointer-events: all;
+
+        .pro-table-message-icon {
+            position: relative;
+            top: -1px;
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+
+            &-success { fill: #52c41a }
+            &-error { fill: #f5222d }
+            &-warn { fill: #faad14 }
+            &-info { fill: #1890ff }
+        }
+    }
+}
+@keyframes MessageMoveEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;;
+        transform: translateY(0);
+    }
+}
+@keyframes MessageMoveLeave {
+    0% {
+        opacity: 1;
+        margin-top: 0;
+    }
+    100% {
+        opacity: 0;
+        margin-top: -57px;
+    }
+}
+  

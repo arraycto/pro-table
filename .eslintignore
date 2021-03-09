@@ -1,0 +1,10 @@
+dist/
+node_modules/
+public/
+script/
+./webpack.config.js
+/lib
+/es
+/example
+src/lib
+src/es

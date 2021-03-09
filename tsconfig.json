@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "ESNext",
+        "lib": ["esnext", "dom"],
+        "jsx": "react",
+        "strict": true,
+        "declaration": true,
+        "declarationDir": "types",
+        "moduleResolution":"node",          // 指定解析策略
+        "skipLibCheck": true,               // 调过声明文件的类型检查
+        "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块进行默认导入，解决 React 导入报错问题
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "include": ["./src/**/*"]
+  }
+  
